@@ -1,6 +1,6 @@
 ## node modules 
-./node_modules/
+/node_modules/
 
 ## bundle 
-./dist/bundle.js
+/dist/bundle.js
 
