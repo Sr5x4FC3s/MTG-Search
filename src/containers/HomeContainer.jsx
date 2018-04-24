@@ -22,7 +22,7 @@ class MTGForm extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   console.log(`this is state`, state);
   return {
-    card: state.targetCard
+    targetCard: state.card
   }
 }
 
