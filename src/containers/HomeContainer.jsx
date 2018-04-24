@@ -1,13 +1,35 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import CardInput from '../components/InputForm.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { change, reset } from 'redux-form';
+import { targetCard } from '../actions/inputActions.js';
 
-const MTGForm = () => {
-  return (
-    <div>
-      <h1>the test render</h1>
-      <CardInput />
-    </div>
-  )
+class MTGForm extends React.Component {
+  submit = (values) => {
+    console.log(values);
+  }
+  render() {
+    return (
+      <div>
+        <CardInput onSubmit={this.submit}/>
+      </div>
+    )
+  }
 }
 
-export default MTGForm
+const mapStateToProps = (state, ownProps) => {
+  console.log(`this is state`, state);
+  return {
+    card: state.targetCard
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInput: (event) => { (dispatch(targetCard(event.target.value))) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MTGForm);
