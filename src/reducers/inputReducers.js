@@ -6,3 +6,12 @@ export const targetCard = (state = '', action) => {
       return state;
   }
 };
+
+export const listCards = (state = [], action) => {
+  switch (action.type) {
+    case `ADD_CARD`:
+      return action.list;
+    default: 
+      return state;
+  }
+};

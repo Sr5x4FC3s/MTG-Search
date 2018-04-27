@@ -4,3 +4,10 @@ export const targetCard = (string) => {
     card: string
   }
 };
+
+export const entryList = (array) => {
+  return {
+    type: `ADD_CARD`,
+    list: array
+  }
+};

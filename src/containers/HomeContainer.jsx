@@ -4,7 +4,7 @@ import CardInput from '../components/InputForm.jsx';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { change, reset } from 'redux-form';
-import { targetCard } from '../actions/inputActions.js';
+import { listCards } from '../actions/inputActions.js';
 
 class MTGForm extends React.Component {
   submit = (values) => {
@@ -20,16 +20,16 @@ class MTGForm extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(`this is state`, state);
+  console.log('this is the state ', state);
   return {
-    targetCard: state.card
+    list: state.listCards
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleInput: (event) => { (dispatch(targetCard(event.target.value))) }
+    addCardToList: () => { (dispatch(listCards(array))) }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MTGForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CardInput);
